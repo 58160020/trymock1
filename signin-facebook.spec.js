@@ -49,11 +49,11 @@ test('Sign-in with Facebook', () => {
 
   var username = 'Nattanich Toopsamoot'
   var password = '0123456789'
-  var accountInfo = auth.signIn('username,password')
+  var accountInfo = auth.signIn(username,password)
 
   expect(facebookAuthMock).toHaveBeenCalled()
   expect(facebookAuthMock).toHaveBeenCalledWith(username,password)
-  expect(accountInfo).toBe('Nattanich')
+  expect(accountInfo.name).toBe('Nattanich Toopsamoot')
   expect(accountInfo).toHaveProperty('token')
   expect(accountInfo.token).toHaveLength(10)
 })
